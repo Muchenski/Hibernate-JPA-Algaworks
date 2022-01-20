@@ -1,0 +1,17 @@
+- Ao lidar com relacionamentos com CascadeType diferente do padrão, ao relacionar uma entidade a outra, 
+utilizar os métodos getters e setters padrões e construtor. Métodos personalizados não irão funcionar.
+
+- Ao realizar os testes, o pacote base onde se encontra a classe com o método main deve ser igual a do teste.
+Ex:
+
+src/main/java - com.locadora.jpa
+src/test/java - com.locadora.jpa
+
+Utilizar cache em entidades que são muito pesquisadas mas pouco atualizadas.
+Não utilizar cache em dados muito longos para não sobrecarregar a memória.
+
+// CacheConcurrencyStrategy:
+
+// NONE - Nenhuma estratégia de cache.
+// NONSTRICT_READ_WRITE - Significa que eventualmente irá atualizar estes dados. 
+// READ_ONLY - Nunca irá atualizar.
