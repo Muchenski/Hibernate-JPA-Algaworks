@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -55,6 +56,8 @@ public abstract class GenericDAO<T extends Resourceable<ID>, ID> implements Crud
 		try {
 			t = entityManager.merge(t);
 			return t;
+		} catch(OptimisticLockException e) {
+			throw new IllegalStateException("This entity has been saved!");
 		} catch(Exception e) {
 			throw new DataIntegrityViolationException(e.getMessage());	
 		}
