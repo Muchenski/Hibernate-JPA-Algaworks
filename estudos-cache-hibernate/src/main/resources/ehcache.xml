@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<diskStore path="/opt/cache"/>
+	<defaultCache 
+		maxElementsInMemory="1000"
+		eternal="false"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120"
+		overflowToDisk="true"
+		maxElementsOnDisk="100000"
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU"
+	/>
+</ehcache>
+<!-- 
+timeToIdleSeconts -> Quanto tempo que a entidade pode ficar em stand by(sem ser consultada) e em cache.
+timeToLiveSeconds -> Quanto tempo a entidade ficará em cache independentemente de estar sendo consultada ou não.
+overflowToDisk -> Permite salvar no disco os elementos.
+memoryStoreEvictionPolicy = LRU -> Remove os elementos do disco que estão a mais tempo sem uso.
+ -->

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- disable storage of sessions across restarts -->
+	<Manager pathname="" />
+
+	<Resource name="BeanManager" auth="Container"
+		type="javax.enterprise.inject.spi.BeanManager"
+		factory="org.jboss.weld.resources.ManagerObjectFactory" />
+
+	<!-- Uncomment to enable injection into Servlets, Servlet Listeners and 
+		Filters in Tomcat -->
+	<!-- <Listener className="org.jboss.weld.environment.tomcat.WeldLifecycleListener"/> -->
+
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+	<WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+	<!-- Padrão do tomcat -->
+	<Resource name="jdbc/GerenciadorAcessoDB" auth="Container"
+		type="javax.sql.DataSource" maxTotal="100" maxIdle="30"
+		maxWaitMillis="10000" username="postgres" password="admin"
+		driverClassName="org.postgresql.Driver"
+		url="jdbc:postgresql://localhost:5432/estudosCache" />
+
+	<!-- Com c3p0 
+	<Resource auth="Container" driverClass="com.mysql.jdbc.Driver"
+		maxPoolSize="4" minPoolSize="2" acquireIncrement="1"
+		name="jdbc/GerenciadorAcessoDB" user="root" password="root"
+		factory="org.apache.naming.factory.BeanFactory"
+		type="com.mchange.v2.c3p0.ComboPooledDataSource"
+		jdbcUrl="jdbc:mysql://localhost:3306/gerenciador_acesso" />
+	-->
+	
+</Context>

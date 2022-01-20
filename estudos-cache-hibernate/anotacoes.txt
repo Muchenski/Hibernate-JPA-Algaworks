@@ -1,0 +1,8 @@
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE) se utilizado em uma coleção, mas não na classe da coleção, não será salvo o cache
+dos itens da listas, mas apenas seus ids.
+
+Para funcionar com o @Cache, o EntityManager precisa ser injetado com @Autowired e não com @PersistenceContext,
+a não ser que o método esteja com @Transactional.
+
+Quando uma query que é cacheada, que envolve uma entidade cacheada, é executada, e há alterações no banco, o hibernate 
+realiza novamente as queries relacionadas a esta entidade, com os valores atualizados.
