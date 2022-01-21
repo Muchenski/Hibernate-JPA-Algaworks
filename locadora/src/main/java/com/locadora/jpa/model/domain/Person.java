@@ -30,7 +30,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.persistence.Version;
 
 import com.locadora.jpa.model.domain.enums.Gender;
 import com.locadora.jpa.model.util.converters.LocalDateConverter;
@@ -105,9 +104,6 @@ public class Person extends DefaultBaseDomain {
 	@Transient
 	private String transientText = "Hello I'm a transient text";
 	
-	@Version
-	private Long version;
-
 	public Person() {
 		super();
 	}
@@ -193,12 +189,4 @@ public class Person extends DefaultBaseDomain {
 		this.birthDateLocalDate = birthDateLocalDate;
 	}
 
-	public Long getVersion() {
-		return version;
-	}
-
-	public void setVersion(Long version) {
-		this.version = version;
-	}
-	
 }
